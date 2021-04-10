@@ -126,3 +126,10 @@ Jetty.prototype._dec2rgb = function(dec) {
     return parseInt(value);
   });
 };
+
+Jetty.prototype.monitor = function (drawer, period) {
+	setInterval(function () {
+		jetty.text(String(drawer()))
+		setTimeout(() => jetty.nuke(), period)
+	}, period);
+}
