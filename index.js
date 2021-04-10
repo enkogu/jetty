@@ -129,14 +129,15 @@ Jetty.prototype._dec2rgb = function(dec) {
 
 Jetty.prototype.monitorFunc = function (drawer, period) {
 	setInterval(function () {
-		jetty.text(String(drawer()))
-		setTimeout(() => jetty.nuke(), period)
+		this.text(String(drawer()))
+		setTimeout(() => this.nuke(), period)
 	}, period);
 }
 
 Jetty.prototype.monitorState = function (state) {
 	setInterval(function () {
-		jetty.text(JSON.stringify(state))
-		setTimeout(() => jetty.nuke(), 200)
+		this.text('----------- Monitor state ----------- \n')
+		this.text(JSON.stringify(state))
+		setTimeout(() => this.nuke(), 200)
 	}, 200);
 }
