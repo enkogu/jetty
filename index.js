@@ -127,9 +127,16 @@ Jetty.prototype._dec2rgb = function(dec) {
   });
 };
 
-Jetty.prototype.monitor = function (drawer, period) {
+Jetty.prototype.monitorFunc = function (drawer, period) {
 	setInterval(function () {
 		jetty.text(String(drawer()))
 		setTimeout(() => jetty.nuke(), period)
 	}, period);
+}
+
+Jetty.prototype.monitorState = function (state) {
+	setInterval(function () {
+		jetty.text(JSON.stringify(state))
+		setTimeout(() => jetty.nuke(), 200)
+	}, 200);
 }
